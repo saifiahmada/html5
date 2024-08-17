@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menangani Data Lokasi dan Kesalahan</title>
+</head>
+<body>
+    <h1>Geolocation API HTML5</h1>
+    <button onclick="getLocation()">Dapatkan Lokasi Saya</button>
+    <p id="locationOutput"></p>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        var lat = position.coords.latitude;
+                        var lon = position.coords.longitude;
+                        document.getElementById("locationOutput").innerHTML = 
+                            "Latitude: " + lat + "<br>Longitude: " + lon;
+                    }, 
+                    function(error) {
+                        handleError(error);
+                    }
+                );
+            } else {
+                document.getElementById("locationOutput").innerHTML = 
+                    "Geolocation tidak didukung oleh browser ini.";
+            }
+        }
+
+        function handleError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Anda telah menolak permintaan akses lokasi.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Lokasi tidak tersedia. Silakan coba lagi nanti.");
+                    break;
+                case error.TIMEOUT:
+                    alert("Permintaan untuk mendapatkan lokasi telah habis waktu.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Terjadi kesalahan yang tidak diketahui.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

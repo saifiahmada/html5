@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage Practical Example</title>
+</head>
+<body>
+    <h1>Practical Example of Web Storage API</h1>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter your username">
+    <button onclick="saveUsername()">Save Username</button>
+    <button onclick="loadUsername()">Load Username</button>
+    <p id="usernameOutput"></p>
+
+    <script>
+        function saveUsername() {
+            var username = document.getElementById("username").value;
+            localStorage.setItem("username", username);
+            alert("Username saved!");
+        }
+
+        function loadUsername() {
+            var savedUsername = localStorage.getItem("username");
+            if (savedUsername) {
+                document.getElementById("usernameOutput").innerText = 
+                    "Saved Username: " + savedUsername;
+            } else {
+                document.getElementById("usernameOutput").innerText = 
+                    "No username found in Local Storage.";
+            }
+        }
+    </script>
+</body>
+</html>

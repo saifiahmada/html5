@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Navigation Example</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home" tabindex="1">Home</a></li>
+            <li><a href="#about" tabindex="2">About</a></li>
+            <li><a href="#contact" tabindex="3">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button onclick="document.getElementById('inputField').focus();">Focus on Input</button>
+
+    <input type="text" id="inputField" aria-label="Input Field">
+</body>
+</html>

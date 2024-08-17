@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        #draggable {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop Example</h1>
+
+    <div id="draggable" draggable="true">Drag Me</div>
+
+    <script>
+        document.getElementById("draggable").addEventListener("dragstart", function(event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+        });
+    </script>
+</body>
+</html>

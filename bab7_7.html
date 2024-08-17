@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menggambar Gambar di Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        
+        img.onload = function() {
+            ctx.drawImage(img, 50, 50, 300, 200);
+        };
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/130px-HTML5_logo_and_wordmark.svg.png'; // Ganti dengan URL gambar Anda
+    </script>
+</body>
+</html>

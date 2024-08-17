@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Sederhana di Canvas</title>
+</head>
+<body>
+    <canvas id="animationCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('animationCanvas');
+        var ctx = canvas.getContext('2d');
+
+        var x = 50;
+        var y = 200;
+        var dx = 2;
+
+        function drawCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2, false);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+            ctx.closePath();
+
+            x += dx;
+            if (x + 20 > canvas.width || x - 20 < 0) {
+                dx = -dx;
+            }
+        }
+
+        function animate() {
+            drawCircle();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

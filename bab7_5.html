@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menggambar Garis</title>
+</head>
+<body>
+    <canvas id="canvasLine" width="400" height="200" style="border:1px solid #000;"></canvas>
+    
+    <script>
+        var canvas = document.getElementById('canvasLine');
+        var ctx = canvas.getContext('2d');
+        
+        // Menggambar garis hitam
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(300, 150);
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+    </script>
+</body>
+</html>

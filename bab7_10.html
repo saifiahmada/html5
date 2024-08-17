@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Mouse di Canvas</title>
+</head>
+<body>
+    <canvas id="drawCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('drawCanvas');
+        var ctx = canvas.getContext('2d');
+        var drawing = false;
+
+        canvas.addEventListener('mousedown', function(e) {
+            drawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        });
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (drawing) {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        });
+
+        canvas.addEventListener('mouseup', function() {
+            drawing = false;
+        });
+
+        canvas.addEventListener('mouseleave', function() {
+            drawing = false;
+        });
+    </script>
+</body>
+</html>

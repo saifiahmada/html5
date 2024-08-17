@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage API Example</title>
+</head>
+<body>
+    <h1>Web Storage API Example</h1>
+
+    <label for="localInput">Local Storage:</label>
+    <input type="text" id="localInput" placeholder="Enter text">
+    <button onclick="saveLocalStorage()">Save to Local Storage</button>
+    <p id="localOutput"></p>
+
+    <label for="sessionInput">Session Storage:</label>
+    <input type="text" id="sessionInput" placeholder="Enter text">
+    <button onclick="saveSessionStorage()">Save to Session Storage</button>
+    <p id="sessionOutput"></p>
+
+    <script>
+        function saveLocalStorage() {
+            var localData = document.getElementById("localInput").value;
+            localStorage.setItem("localData", localData);
+            document.getElementById("localOutput").innerText = 
+                "Saved in Local Storage: " + localData;
+        }
+
+        function saveSessionStorage() {
+            var sessionData = document.getElementById("sessionInput").value;
+            sessionStorage.setItem("sessionData", sessionData);
+            document.getElementById("sessionOutput").innerText = 
+                "Saved in Session Storage: " + sessionData;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas dengan Konteks 3D</title>
+</head>
+<body>
+    <canvas id="webglCanvas" width="500" height="400"></canvas>
+    
+    <script>
+        var canvas = document.getElementById('webglCanvas');
+        var gl = canvas.getContext('webgl');
+
+        if (!gl) {
+            console.log("WebGL tidak didukung di browser ini.");
+            // You can throw an error or just log and stop execution manually
+            throw new Error("WebGL tidak didukung");
+        }
+
+        // Mengatur warna latar belakang dan membersihkan canvas
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Sentuh di Canvas</title>
+</head>
+<body>
+    <canvas id="touchCanvas" width="500" height="400" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('touchCanvas');
+        var ctx = canvas.getContext('2d');
+        var drawing = false;
+
+        canvas.addEventListener('touchstart', function(e) {
+            drawing = true;
+            var touch = e.touches[0];
+            ctx.beginPath();
+            ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+        });
+
+        canvas.addEventListener('touchmove', function(e) {
+            if (drawing) {
+                var touch = e.touches[0];
+                ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+                ctx.stroke();
+            }
+        });
+
+        canvas.addEventListener('touchend', function() {
+            drawing = false;
+        });
+
+        canvas.addEventListener('touchcancel', function() {
+            drawing = false;
+        });
+    </script>
+</body>
+</html>
